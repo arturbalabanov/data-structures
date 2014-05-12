@@ -8,15 +8,14 @@ template<class T>
 class Node
 {
 private:
-	Node<T>* next;
 	T data;
 
 public:
-	Node(const T& data, Node<T>* next=NULL);
-	Node<T>* nextNode();
-	void insertAfter(Node<T>* p);
-	Node<T>* deleteAfter();
-	Node<T>* getNode(const T& data, Node<T>* next=NULL);
+	Node<T>* next;
+
+	Node(const T& data, Node<T>* next);
+	Node(const T& data);
+	T getData();
 };
 
-#endif // NODE_H
+#endif

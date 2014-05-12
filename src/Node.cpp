@@ -8,38 +8,14 @@ Node<T>::Node(const T& data, Node<T>* next)
 }
 
 template<class T>
-Node<T>*Node<T>::nextNode()
+Node<T>::Node(const T& data)
 {
-	return this->next;
+	this->data = data;
+	this->next = NULL;
 }
 
 template<class T>
-void Node<T>::insertAfter(Node<T>* p)
+T Node<T>::getData()
 {
-	p->next = this->next;
-	this->next = p;
+	return this->data;
 }
-
-template<class T>
-Node<T>* Node<T>::deleteAfter()
-{
-	Node<T>* tmp = this->next;
-	if (this->next != NULL) {
-		this->next = this->next->next;
-	}
-
-	return tmp;
-}
-
-template<class T>
-Node<T>* getNode(const T& data, Node<T>* next=NULL)
-{
-	Node<T>* new_node;
-	new_node = new Node<T>(data, next);
-	if (new_node == NULL) {
-		std::cerr << "Memory allocation failed.\n";
-		exit(EXIT_FAILURE);
-	}
-	return new_node;
-}
-
