@@ -23,6 +23,7 @@ public:
 	Node<T>* getFirst();
 	Node<T>* getLast();
 	int getSize();
+	bool isEmpty();
 };
 
 #endif

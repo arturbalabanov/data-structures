@@ -49,6 +49,11 @@ Node<T>* LinkedList<T>::deleteAfter(Node<T>* node)
 	node->next = node->next->next;
 	this->size--;
 
+	if (this->size == 0) {
+		this->first = NULL;
+		this->last = NULL;
+	}
+
 	return removed;
 }
 
@@ -67,12 +72,6 @@ Node<T>* LinkedList<T>::getAfter(Node<T>* node)
 }
 
 template<class T>
-int LinkedList<T>::getSize()
-{
-	return this->size;
-}
-
-template<class T>
 Node<T>* LinkedList<T>::getFirst()
 {
 	return this->first;
@@ -82,4 +81,16 @@ template<class T>
 Node<T>* LinkedList<T>::getLast()
 {
 	return this->last;
+}
+
+template<class T>
+int LinkedList<T>::getSize()
+{
+	return this->size;
+}
+
+template<class T>
+bool LinkedList<T>::isEmpty()
+{
+	return this->size == 0;
 }
